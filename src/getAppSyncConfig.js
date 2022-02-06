@@ -131,6 +131,11 @@ export default function getAppSyncConfig(context, appSyncConfig) {
         };
       }
       case 'AMAZON_ELASTICSEARCH':
+        return {
+          ...context.options.elasticsearch,
+          ...dataSource,
+          endpoint: source.config.endpoint,
+        };
       case 'HTTP': {
         return {
           ...dataSource,
